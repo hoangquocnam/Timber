@@ -360,13 +360,13 @@ int main()
 			Time dt = clock.restart(); // dt = delta time   
 			timeRemain -= dt.asSeconds();
 			timeBar.setSize(Vector2f(timeBarWidthperSec * timeRemain, timeBarHegiht));
-			if (timeRemain < 0) {
+			if (timeRemain <= 0) {
 				paused = 1;
 				msgTxt.setString("Game Over!");
 				txtRect = msgTxt.getLocalBounds();
 				msgTxt.setOrigin(txtRect.left + txtRect.width / 2.0, txtRect.top + txtRect.height / 2.0);
 				msgTxt.setPosition(1920 / 2.0, 1080 / 2.0);
-				/*if (timeRemain == 0)*/ timeOut.play();
+				if (timeRemain == 0) timeOut.play();
 			}
 
 			MoveBee(isActiveBee, sprtBee, speedBee, dt);
